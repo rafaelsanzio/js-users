@@ -20,7 +20,7 @@ usersRouter.use(json());
 
 usersRouter.get("/", function (_, res) {
   database
-    .select("id, username, first_name, last_name, age, gender, created_at")
+    .select("*")
     .from("users")
     .then((users) => res.json(users))
     .catch((err) =>
@@ -30,7 +30,7 @@ usersRouter.get("/", function (_, res) {
 
 usersRouter.get("/:id", (req, res) => {
   database
-    .select("id, username, first_name, last_name, age, gender, created_at")
+    .select("*")
     .from("users")
     .where("id", req.params.id)
     .first()
