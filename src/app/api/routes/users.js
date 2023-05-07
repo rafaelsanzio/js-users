@@ -11,7 +11,7 @@ let database = knex({
 });
 
 if (process.env.APP == "PROD") {
-  database = production;
+  database = knex({ ...production });
 }
 
 const usersRouter = Router();
